@@ -1,9 +1,8 @@
-const key = "f5e829f8675642de9187a93ec807ea51";
 const baseUri = "https://api.rawg.io/api";
 
 export const getGames = async (pageNumber = 1) => {
   try {
-    const req = await fetch(`${baseUri}/games?key=${key}&page=${pageNumber}&page_size=50`, {
+    const req = await fetch(`${baseUri}/games?key=${import.meta.env.VITE_API_KEY}&page=${pageNumber}&page_size=50`, {
       method: "GET",
     });
 
