@@ -8,7 +8,6 @@ const currentFilters = {
 
 const Filters = ({ handleApplyFilters }) => {
   const [filters, setFilters] = useState(currentFilters);
-  const [f, setF] = useState(currentFilters);
 
   const handleUpdateFilters = (field, value) => {
     const current = { ...filters };
