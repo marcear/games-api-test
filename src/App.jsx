@@ -6,7 +6,7 @@ import { Container } from "@chakra-ui/react";
 function App() {
   return (
     <div className="App">
-      <Container maxW="container.xl" centerContent>
+      <Container maxW={1920} centerContent>
         <GamesList />
       </Container>
     </div>

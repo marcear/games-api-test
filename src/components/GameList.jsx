@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { getGames } from "../services.js/movieService";
-import { SimpleGrid, Stack, Spinner } from "@chakra-ui/react";
+import { SimpleGrid, Stack, Spinner, Grid } from "@chakra-ui/react";
 import GameCard from "./GameCard";
 import Filters from "./Filters";
 
@@ -55,8 +55,9 @@ const GamesList = () => {
         backgroundImage={game.background_image}
         name={game.name}
         rating={game.rating}
-        added={game.added}
+        parentPlatforms={game.parent_platforms}
         playTime={game.playtime}
+        clip={game.clip}
       />
     ));
   };
@@ -78,9 +79,9 @@ const GamesList = () => {
   return (
     <>
       <Filters handleApplyFilters={handleApplyFilters} />
-      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing="20px">
+      <Grid templateColumns="repeat(auto-fill, minmax(380px, 1fr))" width={"100%"} justifyContent="center" gap={6}>
         {getGameCards()}
-      </SimpleGrid>
+      </Grid>
       {loading ? <Spinner size="xl" /> : <Stack direction="row" height={100} width="100%" ref={setElement}></Stack>}
     </>
   );
